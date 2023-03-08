@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { ref, provide } from 'vue';
+import { ref, provide, watch } from 'vue';
 import { RouterView } from 'vue-router'
+const width = document.documentElement.clientWidth
+const asideVisible = ref(width <= 500 ? false: true)
 
-const asideVisible = ref(false)
 
 provide('asideVisible', asideVisible)
 

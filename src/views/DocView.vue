@@ -17,7 +17,7 @@ const asideVisible = inject<Ref<boolean>>('asideVisible')
           <li>Tabs 组件</li>
         </ul>
       </aside>
-      <div class="content">content</div>
+      <div class="content">{{asideVisible}}</div>
     </main>
   </div>
 </template>
@@ -36,6 +36,7 @@ aside{
     right: 10px;
     top: -20px;
   }
+
 }
 .menu-list{
   position: absolute;
@@ -51,6 +52,15 @@ aside{
     text-align: center;
     height: 36px;
     line-height: 36px;
+  }
+}
+@media (min-width: 500px) {
+  .triangle{display: none;}
+  .menu-list{
+    height: 100vh;
+    border-radius: 0;
+    top: 0;
+    left: 0;
   }
 }
 </style>
