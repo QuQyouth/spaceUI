@@ -1,7 +1,13 @@
+
+<script setup lang="ts">
+import { inject, type Ref } from 'vue';
+
+const asideVisible = inject<Ref<boolean>>('asideVisible')
+</script>
 <template>
     <header class="topnav">
       <div class="logo">logo</div>
-      <div class="menu">
+      <div class="menu" @click="() => {asideVisible = !asideVisible}">
         menu
       </div>
     </header>

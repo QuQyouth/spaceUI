@@ -1,18 +1,20 @@
 <script setup lang="ts">
+import { inject, type Ref } from 'vue';
 import TopNav from '../components/TopNav.vue'
+const asideVisible = inject<Ref<boolean>>('asideVisible')
 </script>
 <template>
   <div class="doc">
     <TopNav />
     <main>
-      <aside>
+      <aside v-if="asideVisible">
         <div class="triangle"></div>
         <ul class="menu-list">
           <li>开始</li>
-          <li>Switch组件</li>
-          <li>Button组件</li>
-          <li>Dialog组件</li>
-          <li>Tabs组件</li>
+          <li>Switch 组件</li>
+          <li>Button 组件</li>
+          <li>Dialog 组件</li>
+          <li>Tabs 组件</li>
         </ul>
       </aside>
       <div class="content">content</div>
