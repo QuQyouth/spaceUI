@@ -6,18 +6,28 @@ const asideVisible = inject<Ref<boolean>>('asideVisible')
 <template>
   <div class="doc">
     <TopNav />
-    <main>
+    <main class="main">
       <aside v-if="asideVisible">
         <div class="triangle"></div>
         <ul class="menu-list">
-          <li>开始</li>
-          <li>Switch 组件</li>
-          <li>Button 组件</li>
-          <li>Dialog 组件</li>
-          <li>Tabs 组件</li>
+          <li>
+            <RouterLink to="/doc">开始</RouterLink>
+          </li>
+          <li>
+            <RouterLink to="/doc/switch">Switch 组件</RouterLink>
+          </li>
+          <li>
+            <RouterLink to="/doc/button">Button 组件</RouterLink>
+          </li>
+          <li>
+            <RouterLink to="/doc/dialog">Dialog 组件</RouterLink>
+          </li>
+          <li>
+            <RouterLink to="/doc/tabs">Tabs 组件</RouterLink>
+          </li>
         </ul>
       </aside>
-      <div class="content">{{asideVisible}}</div>
+      <div class="content"><RouterView></RouterView></div>
     </main>
   </div>
 </template>
@@ -56,11 +66,33 @@ aside{
 }
 @media (min-width: 500px) {
   .triangle{display: none;}
-  .menu-list{
-    height: 100vh;
-    border-radius: 0;
-    top: 0;
-    left: 0;
+  .main {
+    display: flex;
+    
+    aside{
+      width: 180px;
+      height: 100vh;
+      flex-shrink: 0;
+      
+        .menu-list{
+          height: 100vh;
+          border-radius: 0;
+          top: 0;
+          left: 0;
+        }
+        
+    }
+
+    .content{
+      flex-grow: 1;
+    }
+
+    
   }
+  
+}
+.content{
+  height: calc(100vh - $header-height);
+  padding: 24px;
 }
 </style>
