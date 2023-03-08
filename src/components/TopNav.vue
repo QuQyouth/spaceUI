@@ -8,11 +8,12 @@
 </template>
 <style lang="scss">
 .topnav{
-    height: 48px;
-    border-bottom: 1px solid black;
+    height: $header-height;
+    box-shadow: 0 0 3px 3px rgba($color: #000000, $alpha: 0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: $menu-background;
     .menu{
         display: flex;
     }
