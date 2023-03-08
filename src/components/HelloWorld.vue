@@ -9,13 +9,15 @@ defineProps<{
     <h1 class="green">{{ msg }}</h1>
     <h3>
       这是一个「灵活」且「优雅」的 UI 库 ～
-      <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
-      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>. What's next?
     </h3>
+    <div class="links">
+      <a href="http://" class="link">GitHub</a>
+      <RouterLink to="/doc" class="link" >开始</RouterLink>
+    </div>
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 h1 {
   font-weight: 500;
   font-size: 2.6rem;
@@ -25,6 +27,19 @@ h1 {
 h3 {
   font-size: 1.2rem;
 }
+.links{
+  display: flex;
+  justify-content: center;
+
+  .link{
+    background-color: red;
+    padding: 4px 16px;
+    border-radius: 16px;
+    margin-left: 4px;
+    margin-right: 4px;
+  }
+}
+
 
 .greetings h1,
 .greetings h3 {
