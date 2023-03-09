@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import DocView from '../views/DocView.vue'
-import Switch from '../components/Switch.vue'
-import Button from '../components/Button.vue'
-import Dialog from '../components/Dialog.vue'
-import Tabs from '../components/Tabs.vue'
+import Switch from '../components/SwitchComponent.vue'
+import Button from '../components/ButtonComponent.vue'
+import Dialog from '../components/DialogComponent.vue'
+import Tabs from '../components/TabsComponent.vue'
 import Start from '../components/Start.vue'
 
 const router = createRouter({

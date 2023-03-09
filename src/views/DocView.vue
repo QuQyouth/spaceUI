@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { inject, type Ref } from 'vue';
-import TopNav from '../components/TopNav.vue'
+import TopNav from '../components/TopNavComponent.vue'
 const asideVisible = inject<Ref<boolean>>('asideVisible')
 </script>
 <template>
