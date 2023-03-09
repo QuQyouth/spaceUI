@@ -1,12 +1,16 @@
 <script setup lang="ts">
-import Dialog from '@/lib/Dialog.vue';
 import Button from '@/lib/Button.vue';
+import Dialog from '@/lib/Dialog.vue';
 import { ref } from 'vue';
 const refVisible = ref(false)
+const openDialog = () => {
+    refVisible.value = !refVisible.value 
+}
 </script>
 <template>
     <div>
-        <Button @click="()=>{refVisible = !refVisible}">Open Modal</Button>
-        <Dialog></Dialog>
+        <Button @click="openDialog">Open Modal</Button>
+        <Dialog :visible="refVisible">mainmain</Dialog>
+        {{ refVisible }}
     </div>
 </template>
