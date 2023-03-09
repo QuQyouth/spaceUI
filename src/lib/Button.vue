@@ -13,6 +13,10 @@ const props = defineProps({
         type: String,
         default: 'default'
     },
+    disabled: {
+        type: Boolean,
+        default: false
+    },
     icon: {}, 
     iconPosition: {
         type: String,
@@ -24,20 +28,29 @@ const props = defineProps({
     loading: {
         type: Boolean,
         default: false
+    },
+    onClick: {
+        type: Function
     }
 })
-const {theme, icon, iconPosition, loading} = toRefs(props)
+const {theme, icon, iconPosition, loading, disabled, onClick} = toRefs(props)
 const attrs = useAttrs()
 // 可以使用 {size, ...rest} = useAttrs()将属性分开
 
 const classes = computed(() => {
     return {
-        // "": theme,
-        // [`theme-${size}`]: size,
         [`theme-${theme.value}`]: theme.value,
-        [`icon-${iconPosition.value}`]: iconPosition.value
+        [`icon-${iconPosition.value}`]: iconPosition.value,
+        [`icon-disable`]: disabled.value,
     }
 })
+
+const buttonOnClick = (e:Event) => {
+    if(disabled){
+        e.preventDefault()
+    }
+    return onClick
+}
 </script>
 <template>
     <div class="space-button-wrapper">
@@ -45,6 +58,8 @@ const classes = computed(() => {
             class="space-button" 
             :class="classes"
             v-bind="attrs"
+            :disabled="disabled"
+            @click="(e)=>{buttonOnClick(e)}"
         >
             <Icon v-if="icon && !loading" :name="icon" />
             <Icon class="space-loading" v-if="loading" name="loading"/>
@@ -121,6 +136,16 @@ const classes = computed(() => {
         background-color: rgba($color: $danger-background-color, $alpha: .5);
         &:active{
             box-shadow: $inner-shadow;
+        }
+    }
+    .icon-disable{
+        cursor: not-allowed;
+        color: $default-background;
+        &:hover{
+            color: $default-background;
+        }
+        &:active{
+            box-shadow: none;
         }
     }
 }

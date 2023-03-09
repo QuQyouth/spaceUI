@@ -30,5 +30,8 @@ const refLoading = ref(false)
         <Button icon="menu" icon-position="left" :loading="true">按钮</Button>
         <Button icon="menu" icon-position="right">按钮</Button>
         <Button icon="menu" icon-position="right" :loading="true">按钮</Button>
+        <br><br>
+        <Button :disabled="true" @click="onClick">disabled</Button>
+        <Button :disabled="false" @click="onClick">false</Button>
     </div>
 </template>

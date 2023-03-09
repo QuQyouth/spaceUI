@@ -1,11 +1,16 @@
 $header-height: 48px;
 $menu-background: #f4f5f9;
-$shadow-color: #c9d6de;
 $default-background: #9BAACF;
-$activated-background-left: #7C8FFD;
-$activated-background-right: #6432F3;
+$activated-background-left: #8abdff;
+$activated-background: #6d5dfc;
+$activated-background-right: #5b0eeb;
 $white-plus: #E4EBF5;
-$fair-background-color: #EEEEEE;
+$danger-color: #ff4d4f;
+$danger-background-color: #ffa39e;
+$shadow: 12px .3rem .6rem $default-background,
+-.2rem -.2rem .5rem $white-plus;
+$inner-shadow: inset .2rem .2rem .5rem $default-background,
+inset -.2rem -.2rem .5rem $white-plus;
 $button-height: 28px;
 $button-width: 56px;
 $cilcle-radius: 20px;
