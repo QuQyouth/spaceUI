@@ -24,7 +24,7 @@ const router = createRouter({
       // component: () => import('../views/DocView.vue')
       component: DocView,
       children: [
-        {path: '', component: Start},
+        {path: '', name: 'start', component: Start},
         {path: 'switch', component: Switch},
         {path: 'button', component: Button},
         {path: 'dialog', component: Dialog},

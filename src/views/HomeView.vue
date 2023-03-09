@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import TopNav from '@/components/TopNav.vue';
+import TopNav from '@/components/TopNavComponent.vue';
 import HelloWorld from '@/components/HelloWorld.vue';
 </script>
 
