@@ -1,7 +1,13 @@
 <script setup lang="ts">
+import Switch from '@/lib/Switch.vue';
+import { ref } from 'vue';
+const refChecked = ref(false)
 </script>
 <template>
     <div>
-        switch
+        <Switch 
+            v-model:checked = refChecked
+        >
+        </Switch>
     </div>
 </template>
