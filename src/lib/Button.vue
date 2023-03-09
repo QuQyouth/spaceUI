@@ -89,6 +89,8 @@ const emit = defineEmits(['click'])
         display: flex;
         align-items: center;
         box-shadow: $default-shadow;
+        margin-left: 4px;
+        margin-right: 4px;
         >.space-icon{
             margin-right: 0.3em;
             order: 1;
@@ -131,8 +133,8 @@ const emit = defineEmits(['click'])
     }
     
     .theme-danger{
-        color: $danger-color;
-        background-color: rgba($color: $danger-background-color, $alpha: .5);
+        color: $white-plus;
+        background-color: rgba($color: $danger-color, $alpha: .5);
         &:active{
             box-shadow: $inner-shadow;
         }
