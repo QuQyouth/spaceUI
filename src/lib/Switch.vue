@@ -39,7 +39,7 @@ const toggle = () => {
     height: $button-height;
     width: $button-width;
     border: none;
-    box-shadow:1px 1px 4px $shadow-color;
+    box-shadow:1px 1px 4px $default-background;
     border-radius: 14px;
     position: relative;
     transition: all .4s ease;
