@@ -16,7 +16,7 @@ const f2 = () => {
 <template>
     <div>
         <Button @click="openDialog">Open Modal</Button>
-        <Dialog v-model:visible="refVisible" @handleOk="f1" @handleCancel="f2" title="HELLO">mainmain</Dialog>
+        <Dialog v-model:visible="refVisible" @handleOk="f1" @handleCancel="f2" title="这是标题">mainmain</Dialog>
         {{ refVisible }}
     </div>
 </template>

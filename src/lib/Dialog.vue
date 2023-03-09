@@ -33,23 +33,25 @@ const onClickCancel = () => {
 </script>
 <template>
     <template v-if="visible">
-        <div class="space-dialog-overlay" @click="close" >
-            <div class="space-dialog-wrapper">
-                <div class="space-dialog">
-                    <header>
-                        <div class="space-dialog-header-content">{{ title }}</div>
-                        <span class="space-dialog-close" @click="close"></span>
-                    </header>
-                    <main>
-                        <slot />
-                    </main>
-                    <footer>
-                        <Button theme="primary" @click="onClickOk" >OK</Button>
-                        <Button theme="danger" @click="onClickCancel" >Cancel</Button>
-                    </footer>
+        <Teleport to="body">
+            <div class="space-dialog-overlay" @click="close" >
+                <div class="space-dialog-wrapper">
+                    <div class="space-dialog">
+                        <header>
+                            <div class="space-dialog-header-content">{{ title }}</div>
+                            <span class="space-dialog-close" @click="close"></span>
+                        </header>
+                        <main>
+                            <slot />
+                        </main>
+                        <footer>
+                            <Button theme="primary" @click="onClickOk" >OK</Button>
+                            <Button theme="danger" @click="onClickCancel" >Cancel</Button>
+                        </footer>
+                    </div>
                 </div>
             </div>
-        </div>
+        </Teleport>
     </template>
 </template>
 
@@ -85,9 +87,11 @@ const onClickCancel = () => {
         align-items: center;
         justify-content: space-between;
         font-size: 20px;
+        color: $activated-background;
     }
     >main{
         padding: 12px 16px;
+        min-height: 120px;
     }
     >footer{
         border-top: 1px solid $default-border-color;
