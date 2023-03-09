@@ -35,7 +35,7 @@ const asideVisible = inject<Ref<boolean>>('asideVisible')
 <style lang="scss">
 aside{
   position: relative;
-  z-index: 10;
+  z-index: $z-index-aside;
 
   .triangle{
     width: 0;

@@ -90,6 +90,7 @@ const buttonOnClick = (e:Event) => {
         background-color: $white-plus;
         display: flex;
         align-items: center;
+        box-shadow: $default-shadow;
         >.space-icon{
             margin-right: 0.3em;
             order: 1;
