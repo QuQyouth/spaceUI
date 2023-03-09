@@ -16,26 +16,25 @@ const toggle = () => {
 }
 </script>
 <template>
-    <div class="switch">
+    <div class="space-switch">
         <button 
-        class="btn"
+        class="space-btn"
             :class="{checked}"
             @click="toggle"
         >
-            <span></span>
+            <span class="space-span"></span>
         </button>
     </div>
 </template>
 
 <style lang="scss">
-.switch{
-    z-index: 1;
+.space-switch{
     display: inline-block;
     height: $button-height;
     width: $button-width;
 }
 
-.btn{
+.space-btn{
     cursor: pointer;
     height: $button-height;
     width: $button-width;
@@ -44,7 +43,7 @@ const toggle = () => {
     border-radius: 14px;
     position: relative;
     transition: all .4s ease;
-    >span{
+    >.space-span{
         cursor: pointer;
         background-color: $default-background;
         position: absolute;
@@ -55,13 +54,15 @@ const toggle = () => {
         border-radius: 50%;
         transition: all .4s ease;
     }
-}
-.checked{
+
+    &.checked{
     background-image: linear-gradient(to right, $activated-background-left,$activated-background-right);
-    >span{
+    >.space-span{
         transform: translateX(calc($button-width - $button-height - 2px));
         background-color: $white-plus;
 
     }
 }
+}
+
 </style>
