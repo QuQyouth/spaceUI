@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import Dialog from '@/lib/Dialog.vue';
 </script>
 <template>
     <div>
-        <Dialog></Dialog>
+        dialog
     </div>
 </template>
