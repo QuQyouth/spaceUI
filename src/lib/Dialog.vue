@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { toRefs } from 'vue';
+import { nextTick, toRefs } from 'vue';
 import Button from './Button.vue';
 const props = defineProps({
     visible: {
@@ -9,25 +9,43 @@ const props = defineProps({
     title: {
         type: String,
         dafault: 'title'
-    }
+    },
+    handleOk: {
+        type: Function
+    },
+    handleCancel: {
+        type: Function
+    },
+    
 })
 const {visible, title} = toRefs(props)
+const emit = defineEmits(['update:visible', 'handleOk', 'handleCancel'])
+
+const close = () => {
+    emit('update:visible', false)
+}
+const onClickOk = () => {
+    emit('handleOk')
+}
+const onClickCancel = () => {
+    emit('handleCancel')
+}
 </script>
 <template>
     <template v-if="visible">
-        <div class="space-dialog-overlay" >
+        <div class="space-dialog-overlay" @click="close" >
             <div class="space-dialog-wrapper">
                 <div class="space-dialog">
                     <header>
                         <div class="space-dialog-header-content">{{ title }}</div>
-                        <span class="space-dialog-close"></span>
+                        <span class="space-dialog-close" @click="close"></span>
                     </header>
                     <main>
                         <slot />
                     </main>
                     <footer>
-                        <Button theme="primary" :groundLevel="true" >OK</Button>
-                        <Button theme="danger" :groundLevel="true" >Cancel</Button>
+                        <Button theme="primary" @click="onClickOk" >OK</Button>
+                        <Button theme="danger" @click="onClickCancel" >Cancel</Button>
                     </footer>
                 </div>
             </div>

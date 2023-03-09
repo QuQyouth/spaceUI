@@ -6,11 +6,17 @@ const refVisible = ref(false)
 const openDialog = () => {
     refVisible.value = !refVisible.value 
 }
+const f1 = () => {
+    refVisible.value = true
+}
+const f2 = () => {
+    refVisible.value = false
+}
 </script>
 <template>
     <div>
         <Button @click="openDialog">Open Modal</Button>
-        <Dialog :visible="refVisible">mainmain</Dialog>
+        <Dialog v-model:visible="refVisible" @handleOk="f1" @handleCancel="f2" title="HELLO">mainmain</Dialog>
         {{ refVisible }}
     </div>
 </template>
