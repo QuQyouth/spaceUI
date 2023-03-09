@@ -29,11 +29,8 @@ const props = defineProps({
         type: Boolean,
         default: false
     },
-    onClick: {
-        type: Function
-    }
 })
-const {theme, icon, iconPosition, loading, disabled, onClick} = toRefs(props)
+const {theme, icon, iconPosition, loading, disabled} = toRefs(props)
 const attrs = useAttrs()
 // 可以使用 {size, ...rest} = useAttrs()将属性分开
 
@@ -49,8 +46,9 @@ const buttonOnClick = (e:Event) => {
     if(disabled){
         e.preventDefault()
     }
-    return onClick
+    emit('click')
 }
+const emit = defineEmits(['click'])
 </script>
 <template>
     <div class="space-button-wrapper">
@@ -59,7 +57,7 @@ const buttonOnClick = (e:Event) => {
             :class="classes"
             v-bind="attrs"
             :disabled="disabled"
-            @click="(e)=>{buttonOnClick(e)}"
+            @click="(e) =>{buttonOnClick(e)}"
         >
             <Icon v-if="icon && !loading" :name="icon" />
             <Icon class="space-loading" v-if="loading" name="loading"/>

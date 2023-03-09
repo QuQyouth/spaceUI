@@ -3,11 +3,12 @@ import { ref } from 'vue';
 import Button from '../lib/Button.vue'
 
 const refTheme = ref('primary')
+const refLoading = ref(false)
+
 const onClick = () => {
     console.log(1);
     
 }
-const refLoading = ref(false)
 </script>
 <template>
     <div>
