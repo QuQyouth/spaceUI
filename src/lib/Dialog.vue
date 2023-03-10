@@ -10,26 +10,13 @@ const props = defineProps({
         type: String,
         dafault: 'title'
     },
-    // handleOk: {
-    //     type: Function
-    // },
-    // handleCancel: {
-    //     type: Function
-    // },
     
 })
 const {visible, title} = toRefs(props)
 const emit = defineEmits(['update:visible', 'handleOk', 'handleCancel'])
 
 const close = () => {
-    console.log('close');
     emit('update:visible', false)
-}
-const ok = () => {
-    emit('handleOk')
-}
-const cancel = () => {
-    emit('handleCancel')
 }
 </script>
 <template>
@@ -46,8 +33,8 @@ const cancel = () => {
                             <slot />
                         </main>
                         <footer>
-                            <Button theme="primary" @click?.stop="ok" >OK</Button>
-                            <Button theme="danger" @click="cancel" >Cancel</Button>
+                            <Button theme="primary" @click="()=>emit('handleOk')" >OK</Button>
+                            <Button theme="danger" @click="()=>emit('handleCancel')" >Cancel</Button>
                         </footer>
                     </div>
                 </div>

@@ -8,33 +8,23 @@ const openDialogOne = () => {
     refVisible.value = !refVisible.value 
 }
 const f1 = () => {
-    // 你的ok逻辑 ...
-    refVisible.value = true
-    console.log('ok');
+    console.log('ok1');
     
 }
 const f2 = () => {
-    refVisible.value = true
-    // 你的cancel逻辑 ...
-    console.log('cancel');
+    console.log('cancel1');
     
 }
-const titleDemo = ref('一键打开Dialog')
-const mainDemo = ref(`<h2>HELLO</h2>`)
 const showf1 = () => {
-    // 你的ok逻辑 ...
-    console.log(1);
+    console.log('ok2');
 }
 const showf2 = () => {
-    // 你的cancel逻辑 ...
-    console.log(2);
-    
-    
+    console.log('cancel2');
 }
 const showDialog = () => {
     openDialog({
-        title: titleDemo.value,
-        content: mainDemo.value,
+        title: '一键打开Dialog',
+        content: `<h2>HELLO</h2>`,
         onHandleOk: showf1,
         onHandleCancel: showf2
     })
