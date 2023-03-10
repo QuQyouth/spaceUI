@@ -10,24 +10,25 @@ const props = defineProps({
         type: String,
         dafault: 'title'
     },
-    handleOk: {
-        type: Function
-    },
-    handleCancel: {
-        type: Function
-    },
+    // handleOk: {
+    //     type: Function
+    // },
+    // handleCancel: {
+    //     type: Function
+    // },
     
 })
 const {visible, title} = toRefs(props)
 const emit = defineEmits(['update:visible', 'handleOk', 'handleCancel'])
 
 const close = () => {
+    console.log('close');
     emit('update:visible', false)
 }
-const onClickOk = () => {
+const ok = () => {
     emit('handleOk')
 }
-const onClickCancel = () => {
+const cancel = () => {
     emit('handleCancel')
 }
 </script>
@@ -39,14 +40,14 @@ const onClickCancel = () => {
                     <div class="space-dialog">
                         <header>
                             <div class="space-dialog-header-content">{{ title }}</div>
-                            <span class="space-dialog-close" @click="close"></span>
+                            <span class="space-dialog-close" @click="() => close"></span>
                         </header>
                         <main>
                             <slot />
                         </main>
                         <footer>
-                            <Button theme="primary" @click="onClickOk" >OK</Button>
-                            <Button theme="danger" @click="onClickCancel" >Cancel</Button>
+                            <Button theme="primary" @click?.stop="ok" >OK</Button>
+                            <Button theme="danger" @click="cancel" >Cancel</Button>
                         </footer>
                     </div>
                 </div>
