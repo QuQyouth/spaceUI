@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, toRefs, watch, watchEffect } from 'vue'
+import { ref, toRefs, watchEffect } from 'vue'
 
 const props = defineProps({
     items: Array<Items>
@@ -21,8 +21,8 @@ const translateWidth = ref(0)
 
 const xxx = () => {
     if (container.value && currentRef.value) {
-        const left1 = (container.value as HTMLDivElement).getBoundingClientRect().left
-        const left2 = (currentRef.value as HTMLDivElement).getBoundingClientRect().left
+        const left1 = container.value.getBoundingClientRect().left
+        const left2 = currentRef.value.getBoundingClientRect().left
         translateWidth.value = left2 - left1
         elementWidth.value = currentRef.value.clientWidth
     }
@@ -48,8 +48,6 @@ watchEffect(xxx)
     <div class="space-tab-body">
         <div :class="[tabIndex === index ? 'show' : 'hide']" v-for="(tab, index) in items" :key="tab.id">
             {{ tab.content }}
-            {{ translateWidth }}
-            {{ elementWidth }}
         </div>
     </div>
 </div>
@@ -89,8 +87,6 @@ watchEffect(xxx)
             border-radius: 12px;
         }
         &-indicator{
-
-            display: block;
             padding: 3px;
             position: absolute;
             top: 2px;
@@ -99,11 +95,8 @@ watchEffect(xxx)
             height: 90%;
             border-radius: 12px;
             box-shadow: $inner-shadow;
-            // transform: translateX(--tabWidth);
-            transition: all .5s cubic-bezier(0.645, 0.045, 0.355, 1);
-                
+            transition: all .3s cubic-bezier(0.645, 0.045, 0.355, 1);
         }
-        
         
     }
 
