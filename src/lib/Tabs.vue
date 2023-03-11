@@ -13,18 +13,15 @@ const changeTab = (index: number) => {
   tabIndex.value = index
 }
 
-const titleRefs = ref<HTMLDivElement[]>([])
 const currentRef = ref<HTMLDivElement | null>(null)
 const container = ref<HTMLDivElement | null>(null)
 const demo = ref()
 const translateWidth = ref(0)
 
 const xxx = () => {
-    const result = titleRefs.value.find((title) => title.classList.contains('active'))
-    console.log(result);
 
     const left1 = (container.value as HTMLDivElement).getBoundingClientRect().left
-    const left2 = (result as HTMLDivElement).getBoundingClientRect().left
+    const left2 = (currentRef.value as HTMLDivElement).getBoundingClientRect().left
     const left = left2 - left1
     console.log(left);
 }
@@ -53,12 +50,9 @@ onMounted(xxx
             v-for="(tab, index) in items"
             :key="tab.id"
             @click="changeTab(index)"
-            :ref="(el) => {if(el) {titleRefs[index] = el as HTMLDivElement}}"
-
+            :ref="(el) => {if(tabIndex === index) currentRef = el as HTMLDivElement}"
         >
             {{ tab.title }}
-            <!-- :ref="(el) => {if(el) {currentRef = el as HTMLDivElement}}" -->
-            <!-- result = divs.find(div=>div.classList.contains('selected')) -->
         </div>
     </div>
     <div class="space-tab-body">
