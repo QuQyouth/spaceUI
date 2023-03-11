@@ -8,7 +8,8 @@ $activated-background-right: #5b0eeb;
 $white-plus: #E4EBF5;
 $danger-color: #ff4d4f;
 $danger-background-color: #ffa39e;
-$default-shadow: .3rem .3rem .6rem $default-background,
+$default-shadow-tab: .3rem .3rem .6rem #c8d0e7;
+$default-shadow: $default-shadow-tab,
 -.2rem -.2rem .5rem $white-plus;
 $inner-shadow: inset .2rem .2rem .5rem $default-background,
 inset -.2rem -.2rem .5rem $white-plus;
