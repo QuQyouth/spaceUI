@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, nextTick, onMounted, onUpdated, ref, toRefs, watchEffect, type ComponentPublicInstance, type HTMLAttributes } from 'vue'
+import { ref, toRefs, watchEffect } from 'vue'
 
 const props = defineProps({
     items: Array<Items>
@@ -15,32 +15,17 @@ const changeTab = (index: number) => {
 
 const currentRef = ref<HTMLDivElement | null>(null)
 const container = ref<HTMLDivElement | null>(null)
-const demo = ref()
 const translateWidth = ref(0)
 
 const xxx = () => {
-
-    const left1 = (container.value as HTMLDivElement).getBoundingClientRect().left
-    const left2 = (currentRef.value as HTMLDivElement).getBoundingClientRect().left
-    const left = left2 - left1
-    console.log(left);
+    if (container.value && currentRef.value) {
+        const left1 = (container.value as HTMLDivElement).getBoundingClientRect().left
+        const left2 = (currentRef.value as HTMLDivElement).getBoundingClientRect().left
+        translateWidth.value = left2 - left1
+    }
+    console.log(`left:${translateWidth.value}`);
 }
-
-onUpdated(xxx),
-
-onMounted(xxx
-    
-    
-    // if(currentRef.value)
-    // translateWidth.value = currentRef.value.getBoundingClientRect().width
-
-    // console.log(translateWidth.value);
-    
-    // watchEffect(()=>{
-    //     if(currentRef.value)
-    //     translateWidth.value = currentRef.value?.getBoundingClientRect().width
-    // })
-)
+watchEffect(xxx)
 </script>
 <template>
 <div class="space-tabs" :style="{'--tabWidth': `${translateWidth}px`}">
