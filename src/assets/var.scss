@@ -13,6 +13,8 @@ $default-shadow: $default-shadow-tab,
 -.2rem -.2rem .5rem $white-plus;
 $inner-shadow: inset .2rem .2rem .5rem $default-background,
 inset -.2rem -.2rem .5rem $white-plus;
+$inner-shadow-light: inset .2rem .2rem .5rem #c8d0e7,
+inset -.2rem -.2rem .5rem #FFFFFF;
 $button-height: 28px;
 $button-width: 56px;
 $cilcle-radius: 20px;

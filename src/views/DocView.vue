@@ -25,6 +25,9 @@ const asideVisible = inject<Ref<boolean>>('asideVisible')
           <li>
             <RouterLink to="/doc/tabs">Tabs 组件</RouterLink>
           </li>
+          <li>
+            <RouterLink to="/doc/CheckBox">CheckBox 组件</RouterLink>
+          </li>
         </ul>
       </aside>
       <div class="content"><RouterView></RouterView></div>

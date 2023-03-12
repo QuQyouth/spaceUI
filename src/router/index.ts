@@ -6,6 +6,7 @@ import Button from '../components/ButtonComponent.vue'
 import Dialog from '../components/DialogComponent.vue'
 import Tabs from '../components/TabsComponent.vue'
 import Start from '../components/Start.vue'
+import Checkbox from '../components/CheckBoxComponent.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -29,6 +30,7 @@ const router = createRouter({
         {path: 'button', component: Button},
         {path: 'dialog', component: Dialog},
         {path: 'tabs', component: Tabs},
+        {path: 'checkbox', component: Checkbox},
       ]
     }
   ]

@@ -6,7 +6,7 @@ export default {
 </script>
 <script setup lang="ts">
 import { computed, toRefs, useAttrs, type PropType } from 'vue'
-import '//at.alicdn.com/t/c/font_3942763_p2roohe6sz.js'
+import '//at.alicdn.com/t/c/font_3942763_ul2evz6zjkr.js'
 import Icon from './Icon.vue'
 const props = defineProps({
     theme: {
