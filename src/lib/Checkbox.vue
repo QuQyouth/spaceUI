@@ -66,7 +66,7 @@ const handleChange = (e: Event) => {
             :value="label"
             :id="itemInputId"
             :checked="ischecked" 
-            :disabled="disabled"  
+            disabled: disabled
             @change="(e)=>handleChange(e)"
             class="space-checkbox-input"/>        
             <label :for="itemInputId" class="space-checkbox-label"><slot>{{ label }}</slot></label>
@@ -118,27 +118,13 @@ const handleChange = (e: Event) => {
         }
 
     }
-    &-btn{
+    .checkDisable{
         .space-checkbox-label{
-            color: hsl(0, 0%, 80%);       
             cursor: not-allowed;
-
-            &::before {        
-                content: '';        
-                border: 1px solid #ccc;        
-                color: transparent;      
-            }      
+            &:hover{
+                color: $default-background;
+            }
         }
-
-        .space-checkbox-input[type='checkbox']:checked ~ .space-checkbox-label{
-            color: #ccc;
-        }
-
-        .space-checkbox-input[type='checkbox']:checked ~ .space-checkbox-label::before {        
-            content: '';        
-            color: #ccc;        
-            border: 1px solid #ccc;      
-        } 
     }
 }
 </style>
