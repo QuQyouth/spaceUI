@@ -17,3 +17,9 @@ export interface SpaceCheckboxGroupProvide{
 // 在定义类型时需要：
 // x :Ref<number> = ref(10)
 // x: ComputedRef<number> = computed(()=> x*2)
+
+export interface Items {
+    id: number
+    title: string
+    content: string
+}

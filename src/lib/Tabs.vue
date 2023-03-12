@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, toRefs, watchEffect } from 'vue'
+import type { Items } from './type';
 
 const props = defineProps({
     items: Array<Items>
