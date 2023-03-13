@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import Markdown from '../components/Markdown.vue'
 import HomeView from '../views/HomeView.vue'
 import DocView from '../views/DocView.vue'
 import Switch from '../components/SwitchComponent.vue'
@@ -6,8 +7,12 @@ import Button from '../components/ButtonComponent.vue'
 import Dialog from '../components/DialogComponent.vue'
 import Tabs from '../components/TabsComponent.vue'
 import Start from '../components/Start.vue'
-import Checkbox from '../components/CheckBoxComponent.vue'
+import Checkbox from '../components/CheckboxComponent.vue'
+import { h } from 'vue'
 
+import marked from 'marked'
+import intro from '@/markdown/intro.md'
+const md = (str: String) => h(Markdown,{content: marked(str)})
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -25,7 +30,8 @@ const router = createRouter({
       // component: () => import('../views/DocView.vue')
       component: DocView,
       children: [
-        {path: '', name: 'start', component: Start},
+        {path: '', name: 'intro', component: md(intro)},
+        {path: 'start', component: Start},
         {path: 'switch', component: Switch},
         {path: 'button', component: Button},
         {path: 'dialog', component: Dialog},
