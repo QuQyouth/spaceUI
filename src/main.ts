@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-import '//at.alicdn.com/t/c/font_3942763_ul2evz6zjkr.js'
+import '//at.alicdn.com/t/c/font_3942763_k90o6r1yn8.js'
 
 import './assets/main.css'
 import './lib/space.scss'

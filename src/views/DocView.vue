@@ -5,7 +5,7 @@ const asideVisible = inject<Ref<boolean>>('asideVisible')
 </script>
 <template>
   <div class="doc">
-    <TopNav />
+    <TopNav :toggleMenuVisible="true"/>
     <main class="main">
       <aside v-if="asideVisible">
         <div class="triangle"></div>

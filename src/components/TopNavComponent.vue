@@ -1,17 +1,27 @@
 
 <script setup lang="ts">
 import { inject, type Ref } from 'vue';
+import Icon from '@/lib/Icon.vue'
 
 const asideVisible = inject<Ref<boolean>>('asideVisible')
+
+const props = defineProps({
+  toggleMenuVisible:{
+    type: Boolean,
+    default: false
+  }
+})
 
 </script>
 <template>
     <header class="topnav">
-      <div class="logo">logo</div>
+      <div class="logo"><Icon name="design" /></div>
       <div class="menu">
-        menu
+        <Icon name="menu" />
       </div>
-      <div class="toggleMenu" @click="() => {asideVisible = !asideVisible}"></div>
+      <div v-if="toggleMenuVisible" class="toggleMenu" @click="() => {asideVisible = !asideVisible}">
+        <Icon name="menu" />
+      </div>
     </header>
 </template>
 <style lang="scss">
@@ -22,19 +32,32 @@ const asideVisible = inject<Ref<boolean>>('asideVisible')
     justify-content: space-between;
     align-items: center;
     background-color: $menu-background;
+    .logo{
+      padding-top: 4px;
+      padding-left: 12px;
+      >svg{
+        width: 38px;
+        height: 38px;
+      }
+    }
 
     .menu{
         display: flex;
+        svg{
+          width: 24px;
+          height: 24px;
+          margin-right: 8px;
+        }
     }
     .toggleMenu{
       display: none;
-      width: 24px;
-      height: 24px;
-      background-color: red;
       position: absolute;
       right: 16px;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 12px;
+      >svg{
+        width: 24px;
+        height: 24px;
+      }
     }
     @media (max-width: 500px) {
       .menu{display: none;}
