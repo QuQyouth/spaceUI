@@ -6,14 +6,17 @@ defineProps<{
 
 <template>
   <div class="greetings">
-    <h1 class="green">{{ msg }}</h1>
-    <h3>
-      这是一个「灵活」且「优雅」的 UI 库 ～
-    </h3>
-    <div class="links">
-      <a href="http://" class="link">GitHub</a>
-      <RouterLink to="/doc" class="link" >开始</RouterLink>
+    <div class="content">
+      <div class="welcome">Welcome to</div>
+      <h1 class="green">{{ msg }}</h1>
+      <!-- <h3>
+        这是一个「灵活」且「优雅」的 UI 库 ～
+      </h3> -->
+      <h3>
+        A Place To Study For Ui Components
+      </h3>
     </div>
+    
   </div>
 </template>
 
@@ -26,30 +29,40 @@ h1 {
 
 h3 {
   font-size: 1.2rem;
+  color: $default-background;
+
+  &::before{
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 100%;
+    background-color: $activated-background;
+    vertical-align: middle;
+  }
 }
-.links{
+.greetings{
   display: flex;
   justify-content: center;
+  align-items: center;
+  .content{
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-  .link{
-    background-color: red;
-    padding: 4px 16px;
-    border-radius: 16px;
-    margin-left: 4px;
-    margin-right: 4px;
+    .welcome{
+      color: $default-background;
+      font-weight: bolder;
+      font-size: 18px;
+    }
   }
 }
-
-
-.greetings h1,
-.greetings h3 {
-  text-align: center;
+.green{
+  color: $activated-background;
+  font-family: 'Architects Daughter', cursive;
+  text-transform: uppercase;
+  font-weight: bolder;
+  margin-top: 16px;
 }
 
-@media (min-width: 1024px) {
-  .greetings h1,
-  .greetings h3 {
-    text-align: left;
-  }
-}
 </style>
