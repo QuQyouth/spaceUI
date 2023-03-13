@@ -9,7 +9,11 @@ const props = defineProps({
   toggleMenuVisible:{
     type: Boolean,
     default: false
-  }
+  },
+  githubVisible: {
+    type: Boolean,
+    default: false
+  },
 })
 
 </script>
@@ -17,7 +21,7 @@ const props = defineProps({
     <header class="topnav">
       <div class="logo"><Icon name="design" /></div>
       <div class="menu">
-        <Icon name="menu" />
+        <Icon v-if="githubVisible" name="github" />
       </div>
       <div v-if="toggleMenuVisible" class="toggleMenu" @click="() => {asideVisible = !asideVisible}">
         <Icon name="menu" />
