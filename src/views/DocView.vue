@@ -11,7 +11,7 @@ const asideVisible = inject<Ref<boolean>>('asideVisible')
         <div class="triangle"></div>
         <ul class="menu-list">
           <li>
-            <RouterLink to="/doc">开始</RouterLink>
+            <RouterLink to="/doc/start">开始</RouterLink>
           </li>
           <li>
             <RouterLink to="/doc/switch">Switch 组件</RouterLink>
@@ -36,6 +36,7 @@ const asideVisible = inject<Ref<boolean>>('asideVisible')
 </template>
 
 <style lang="scss">
+
 aside{
   position: relative;
   z-index: $z-index-aside;
@@ -65,6 +66,16 @@ aside{
     text-align: center;
     height: 36px;
     line-height: 36px;
+
+    .router-link-active{
+      display: inline-block;
+      text-align: center;
+      width: 100%;
+      height: 36px;
+      line-height: 36px;
+      background-color: $white-plus;
+      color: $activated-background;
+  }
   }
 }
 @media (min-width: 500px) {
