@@ -38,7 +38,7 @@ const model = computed({
 })
 
 const ischecked = computed(() => {
-    // 如果父组件传递过来的数据是一个数组并包含有
+    // 如果父组件传递过来的数据是一个数组并包含有当前label
     if (Array.isArray(model.value)) {
         return model.value.includes(props.label)
     }else{
@@ -66,7 +66,7 @@ const handleChange = (e: Event) => {
             :value="label"
             :id="itemInputId"
             :checked="ischecked" 
-            disabled: disabled
+            :disabled="disabled"
             @change="(e)=>handleChange(e)"
             class="space-checkbox-input"/>        
             <label :for="itemInputId" class="space-checkbox-label"><slot>{{ label }}</slot></label>

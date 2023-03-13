@@ -2,8 +2,8 @@
 import Checkbox from '@/lib/Checkbox.vue';
 import CheckBoxGroup from '@/lib/CheckboxGroup.vue'
 import { ref } from 'vue';
-const checkVal = ref(['上海','深圳'])
-const checks = ref(['上海','北京','天津','深圳'])
+const checkVal = ref(['上海','广州'])
+const checks = ref(['上海','北京','广州','深圳'])
 const checkboxChange = (val:Event) => {
     
     console.log(val);
@@ -21,7 +21,7 @@ const myValue = ref(false)
 
     <hr>
     {{ myValue }}
-    <Checkbox label="hello" v-model:modelValue="myValue" :disabled="true"></Checkbox>
+    <Checkbox label="hello" v-model:modelValue="myValue" disabled></Checkbox>
   </template>
 
 
