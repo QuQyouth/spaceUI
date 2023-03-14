@@ -1,7 +1,7 @@
 <script setup lang="ts">
 defineProps({
 content: {
-    type: String,
+    type: Object,
 }
 })
 </script>
