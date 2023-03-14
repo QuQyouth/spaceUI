@@ -4,12 +4,16 @@ import { defineConfig } from 'vite'
 
 import vue from '@vitejs/plugin-vue'
 import VueMarkdown from "vite-plugin-vue-markdown"
+import { prismjsPlugin } from 'vite-plugin-prismjs'
 /*  */
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue({
     include: [/\.vue$/, /\.md$/], // <--
-  }), VueMarkdown()],
+  }), VueMarkdown(), prismjsPlugin({
+    // languages: ['json'],
+     languages: 'all',
+  })],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
