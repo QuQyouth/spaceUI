@@ -8,11 +8,8 @@ import Dialog from '../components/DialogComponent.vue'
 import Tabs from '../components/TabsComponent.vue'
 import Start from '../components/Start.vue'
 import Checkbox from '../components/CheckboxComponent.vue'
-import { h } from 'vue'
 
-import marked from 'marked'
-import intro from '@/markdown/intro.md'
-const md = (str: String) => h(Markdown,{content: marked(str)})
+import Intro from '@/markdown/intro.md'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -30,7 +27,7 @@ const router = createRouter({
       // component: () => import('../views/DocView.vue')
       component: DocView,
       children: [
-        {path: '', name: 'intro', component: md(intro)},
+        {path: '', name: 'intro', component: Markdown, props:{content: Intro}},
         {path: 'start', component: Start},
         {path: 'switch', component: Switch},
         {path: 'button', component: Button},
