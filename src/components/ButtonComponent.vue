@@ -21,12 +21,12 @@ import IconButtonStr from './button-demo/IconButton.vue?raw';
         <p>使用<span> theme </span>属性改变按钮主题，这里提供三个可选值：primary default danger</p>
         <Demo :demoComponent="BaseButton" :demoStr="BaseButtonStr"></Demo>
         <h3>支持disabled</h3>
-        <Demo :demoComponent="DisableButton" :demoStr="DisableButtonStr"></Demo>
+        <Demo :demoComponent="DisableButton" :demoStr="DisableButtonStr" title="disabled"></Demo>
         <h3>支持loading</h3>
-        <Demo :demoComponent="LoadingButton" :demoStr="LoadingButtonStr"></Demo>
+        <Demo :demoComponent="LoadingButton" :demoStr="LoadingButtonStr" title="loading"></Demo>
         <h3>支持Icon</h3>
         <p>可通过icon-position属性设置图标位置</p>
-        <Demo :demoComponent="IconButton" :demoStr="IconButtonStr"></Demo>
+        <Demo :demoComponent="IconButton" :demoStr="IconButtonStr" title="Icon"></Demo>
         <br>
         
     </div>

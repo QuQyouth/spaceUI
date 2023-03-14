@@ -1,19 +1,16 @@
 <script setup lang="ts">
-import Tabs from '@/lib/Tabs.vue'
-import { ref } from 'vue';
+import Demo from './Demo.vue'
+import TabsDemo1 from './tabs-demo/TabsDemo1.vue'
+import TabsDemo1Str from './tabs-demo/TabsDemo1.vue?raw'
 
-interface Items {
-    id: number
-    title: string
-    content: string
-  }
-const items = ref<Items[]>([
-    { id: 1, title: 'Tab 1', content: 'This is tab 1 content' },
-    { id: 2, title: 'Tab 2222', content: 'This is tab 2 content' },
-    { id: 3, title: 'Tab 3', content: 'This is tab 3 content' },
-  ])
+
 </script>
-
 <template>
-<Tabs :items="items"></Tabs>
+  <div class="demo">
+        <h2>Tabs 组件示例</h2>
+        <h3>常规用法</h3>
+        <p>它接受一个对象，你需要将你的标题和内容通过对象的<span> title </span>和<span> content </span>属性传递给组件</p>
+        <Demo :demoComponent="TabsDemo1" :demoStr="TabsDemo1Str"/>
+    </div>
+
 </template>

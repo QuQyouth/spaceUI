@@ -49,6 +49,7 @@ const controlCode = () => {
         justify-content: space-between;
         padding: 8px;
         background-color: $white-plus;
+        border-radius: 4px;
         box-shadow: $default-shadow;
         font-weight: bolder;
 

@@ -4,8 +4,7 @@ import Button from '@/lib/Button.vue';
 
 const refTheme = ref('primary')
 const onClick = () => {
-    console.log('click');
-    
+    console.log('click')
 }
 </script>
 <template>
