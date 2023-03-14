@@ -89,9 +89,10 @@ aside{
       flex-shrink: 0;
       
         .menu-list{
+          position: fixed;
           height: 100vh;
           border-radius: 0;
-          top: 0;
+          top: 48px;
           left: 0;
         }
         
