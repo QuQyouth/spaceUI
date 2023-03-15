@@ -9,7 +9,7 @@ import CircleStart from '@/components/CircleStart.vue'
   <main>
     <HelloWorld msg="Space UI" /> 
     <RouterLink to="/doc"><CircleStart /></RouterLink>    
-    <a class="a-git" href="http://">GitHub</a>
+    <a class="a-git" href="https://github.com/QuQyouth/spaceUI" target="_blank">GitHub</a>
   </main>
 </template>
 

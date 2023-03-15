@@ -22,9 +22,9 @@ const props = defineProps({
       <RouterLink to="/" >
         <div class="logo"><Icon name="design" /></div>
       </RouterLink>
-      <div class="menu">
+      <a class="menu" href="https://github.com/QuQyouth/spaceUI" target="_blank">
         <Icon v-if="githubVisible" name="github" />
-      </div>
+      </a>
       <div v-if="toggleMenuVisible" class="toggleMenu" @click="() => {asideVisible = !asideVisible}">
         <Icon name="menu" />
       </div>

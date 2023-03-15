@@ -4,5 +4,5 @@ import Checkbox from '@/lib/Checkbox.vue';
 
 
 <template> 
-    <Checkbox label="option" disabled></Checkbox>
+    <Checkbox label="disabled" disabled></Checkbox>
 </template>
