@@ -8,6 +8,7 @@ import { prismjsPlugin } from 'vite-plugin-prismjs'
 /*  */
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: './',
   plugins: [vue({
     include: [/\.vue$/, /\.md$/], // <--
   }), VueMarkdown(), prismjsPlugin({
