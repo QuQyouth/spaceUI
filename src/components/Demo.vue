@@ -48,7 +48,7 @@ const controlCode = () => {
         display: flex;
         justify-content: space-between;
         padding: 8px;
-        background-color: $white-plus;
+        border-top: 2px solid $white-plus;
         border-radius: 4px;
         box-shadow: $default-shadow;
         font-weight: bolder;

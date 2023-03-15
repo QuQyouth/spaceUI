@@ -19,7 +19,9 @@ const props = defineProps({
 </script>
 <template>
     <header class="topnav">
-      <div class="logo"><Icon name="design" /></div>
+      <RouterLink to="/" >
+        <div class="logo"><Icon name="design" /></div>
+      </RouterLink>
       <div class="menu">
         <Icon v-if="githubVisible" name="github" />
       </div>
