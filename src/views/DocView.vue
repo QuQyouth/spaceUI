@@ -11,7 +11,7 @@ const asideVisible = inject<Ref<boolean>>('asideVisible')
         <div class="triangle"></div>
         <ul class="menu-list">
           <li>
-            <RouterLink to="/doc/start">开始</RouterLink>
+            <RouterLink to="/doc/intro">介绍</RouterLink>
           </li>
           <li>
             <RouterLink to="/doc/switch">Switch 组件</RouterLink>

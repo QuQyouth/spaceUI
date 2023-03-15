@@ -29,7 +29,7 @@ const router = createRouter({
       component: DocView,
       children: [
         {path: '', name: 'intro', component: Markdown, props:{content: Intro}},
-        {path: 'start', component: Start},
+        {path: 'intro', component: Markdown, props:{content: Intro}},
         {path: 'switch', component: Switch},
         {path: 'button', component: Button},
         {path: 'dialog', component: Dialog},
