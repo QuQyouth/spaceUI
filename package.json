@@ -11,6 +11,7 @@
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "dependencies": {
+    "dayjs": "^1.11.7",
     "github-markdown-css": "^5.2.0",
     "prismjs": "^1.29.0",
     "vue": "^3.2.47",
