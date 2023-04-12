@@ -64,7 +64,9 @@ watchEffect(xxx)
     overflow: hidden;
     color: $default-background;
     box-shadow: $default-shadow;
-    width: 100%;
+    width: 90%;
+    margin-top: 30px;
+    margin-left: 20px;
 
     .space-tab-header {
         padding: 4px;

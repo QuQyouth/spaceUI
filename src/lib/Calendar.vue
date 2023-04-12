@@ -121,12 +121,12 @@ const addMonth = ()=>{
         border-radius: 50%;
         cursor: pointer;
       }
+      .active{
+        background-color: $activated-background;
+        color: $white-plus;
+      }
     }
   }
-}
-.active{
-  background-color: $activated-background;
-  color: $white-plus;
 }
 .month {
   display: flex;
