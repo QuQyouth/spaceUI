@@ -8,6 +8,7 @@ import Dialog from '../components/DialogComponent.vue'
 import Tabs from '../components/TabsComponent.vue'
 import Start from '../components/Start.vue'
 import Checkbox from '../components/CheckboxComponent.vue'
+import Calendar from '../components/CalendarComponent.vue'
 
 import Intro from '@/markdown/intro.md'
 const router = createRouter({
@@ -35,6 +36,7 @@ const router = createRouter({
         {path: 'dialog', component: Dialog},
         {path: 'tabs', component: Tabs},
         {path: 'checkbox', component: Checkbox},
+        {path: 'calendar', component: Calendar},
       ]
     }
   ]
