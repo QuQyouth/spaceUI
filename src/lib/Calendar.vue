@@ -1,10 +1,9 @@
 <template>
-  111{{ props.dateValue }}111
 <div class="calendar">
     <div class="month">
         <div class="arrow" @click="reduceYear">&lt;&lt;</div>
         <div class="arrow" @click="reduceMonth">&lt;</div>
-        <div class="current-month">{{ currentDate }}</div>
+        <div class="current-month">{{ dateValue }}</div>
         <div class="arrow" @click="addMonth">&gt;</div>
         <div class="arrow" @click="addYear">&gt;&gt;</div>
     </div>
@@ -20,7 +19,7 @@
             <li v-for="val in week" 
               :key="val.day" 
               class="calendar-main-ul-everyday"
-              :class="[currentDate === val.date?.format('YYYY/MM/DD') ? 'active' : '']"
+              :class="[dateValue === val.date?.format('YYYY/MM/DD') ? 'active' : '']"
               
               @click="selectDay(val.date)"
             >
@@ -46,14 +45,12 @@ const props = defineProps({
   }
 })
 const {dateValue} = toRefs(props)
-const emit = defineEmits(['selectDay'])
+const emit = defineEmits(['update:dateValue'])
 const weekName = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-// const currentDate = ref(dayjs(dateValue.value).format('YYYY/MM/DD'))
-const currentDate = ref(dayjs().format('YYYY/MM/DD'))
 // 当前月份对应天数
-const numberOfDaysInMonth = computed(()=>dayjs(currentDate.value).daysInMonth())
+const numberOfDaysInMonth = computed(()=>dayjs(dateValue.value).daysInMonth())
 // 当月1号对应周几 .day() 周0~6
-const firstDayMonthOfWeek = computed(() => dayjs(currentDate.value).startOf('month').day())
+const firstDayMonthOfWeek = computed(() => dayjs(dateValue.value).startOf('month').day())
 // 初始化day
 const initDay:EveryDay = reactive({
   isCurrentMonth: false,
@@ -64,7 +61,7 @@ const weeks = computed(()=>getWeeks(firstDayMonthOfWeek.value, numberOfDaysInMon
 const getWeeks = (firstDayMonthOfWeek:number, numberOfDaysInMonth:number) => {
     const allDays = Array.from({length: firstDayMonthOfWeek},()=>initDay)
     for (let i = 0; i < numberOfDaysInMonth; i++) {
-      const day = dayjs(currentDate.value).date(i+1)
+      const day = dayjs(dateValue.value).date(i+1)
       allDays.push({
         isCurrentMonth: true,
         date: day,
@@ -83,26 +80,20 @@ const getWeeks = (firstDayMonthOfWeek:number, numberOfDaysInMonth:number) => {
 }
 const selectDay = (date:dayjs.Dayjs | null)=>{
   if (date) {
-    currentDate.value = dayjs(date).format('YYYY/MM/DD')
-    // emit('update:modelValue', dayjs(date).format('YYYY/MM/DD'))
-    emit('selectDay', currentDate.value)
+    emit('update:dateValue', dayjs(date).format('YYYY/MM/DD'))
   }
 }
 const reduceYear = ()=>{
-  currentDate.value = dayjs(currentDate.value).add(-1, 'year').format('YYYY/MM/DD')
-  // emit('update:modelValue', dayjs(modelValue.value).add(-1, 'year').format('YYYY/MM/DD'))
+  emit('update:dateValue', dayjs(dateValue.value).add(-1, 'year').format('YYYY/MM/DD'))
 }
 const addYear = ()=>{
-  currentDate.value = dayjs(currentDate.value).add(1, 'year').format('YYYY/MM/DD')
-  // emit('update:modelValue', dayjs(modelValue.value).add(1, 'year').format('YYYY/MM/DD'))
+  emit('update:dateValue', dayjs(dateValue.value).add(1, 'year').format('YYYY/MM/DD'))
 }
 const reduceMonth = ()=>{
-  currentDate.value = dayjs(currentDate.value).add(-1, 'month').format('YYYY/MM/DD')
-  // emit('update:modelValue', dayjs(modelValue.value).add(-1, 'month').format('YYYY/MM/DD'))
+  emit('update:dateValue', dayjs(dateValue.value).add(-1, 'month').format('YYYY/MM/DD'))
 }
 const addMonth = ()=>{
-  currentDate.value = dayjs(currentDate.value).add(1, 'month').format('YYYY/MM/DD')
-  // emit('update:modelValue', dayjs(modelValue.value).add(1, 'month').format('YYYY/MM/DD'))
+  emit('update:dateValue', dayjs(dateValue.value).add(1, 'month').format('YYYY/MM/DD'))
 }
 </script>
 
